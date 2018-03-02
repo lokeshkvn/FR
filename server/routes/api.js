@@ -33,6 +33,14 @@ router.route('/addcard/retailer/:retailer_id')
 router.route('/removecard/:card_info_id')
     .delete(UsersController.removeCard);
 
+//get all cards of a retailer
+router.route('/cards/:retailer_id')
+    .get(UsersController.getCard);
+
+//get one card details
+router.route('/card/:card_id')
+    .get(UsersController.getOneCard);
+
 //get all administrators or add a new one
 router.route('/administrator')
     .get(UsersController.getAdministrators)
