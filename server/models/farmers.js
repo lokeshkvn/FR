@@ -38,7 +38,7 @@ const FarmerSchema = mongoose.Schema({
     card_info_id:{
         type: String,
         required: false
-    },
+    }
     // photo:{
     //     type: ,
     //     required:

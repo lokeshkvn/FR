@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const retailer = require('./retailers');
 
-const CardInfoSchema = new mongoose.Schema({
+const RetailerCardInfoSchema = new mongoose.Schema({
     retailer_id: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
@@ -33,4 +33,4 @@ const CardInfoSchema = new mongoose.Schema({
     }
 });
 
-const Card = module.exports = mongoose.model('CardInfo', CardInfoSchema);
+const RetailerCardInfo = module.exports = mongoose.model('RetailerCardInfo', RetailerCardInfoSchema);
