@@ -9,7 +9,7 @@ var path = require('path');
 var app = express();
 
 //connect to mongoDB
-mongoose.connect('mongodb://localhost:27017/farmerretailer', 
+mongoose.connect('mongodb://lokesh:lokesh@ds121599.mlab.com:21599/farmer-retailer', 
             {useMongoClient: true, server: { poolSize: 5 }});
 
 //on connection
@@ -28,7 +28,7 @@ app.use(cors());
 app.use(bodyparser.json());
 
 //static files
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static(path.join(__dirname, '/public')));
 
 //routes
 const route = require('./server/routes/route');
@@ -44,7 +44,7 @@ app.use('/signup', route);
 
 app.get('/',(req,res,next)=>{
     console.log(res);
-    res.sendFile(path.join(__dirname,'dist/index.html'));
+    res.sendFile(path.join(__dirname,'/public/index.html'));
     // res.status(200).json({
     //     messsage:"You requested Home page"
     // })
@@ -55,8 +55,8 @@ app.get('*',(req,res)=>{
 })
 
 //initiating the server
-const port = app.get('port') || 3000;
+const port = process.env.PORT || app.get('port') || 3000;
 
 app.listen(port, ()=>{
-    console.log("server started at port: "+port);
+    console.log("server started at port: " + port);
 });
