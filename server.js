@@ -44,7 +44,7 @@ app.use('/signup', route);
 
 app.get('/',(req,res,next)=>{
     console.log(res);
-    res.sendFile(path.join(__dirname,'/public/index.html'));
+    res.sendFile(path.join(__dirname,'public/index.html'));
     // res.status(200).json({
     //     messsage:"You requested Home page"
     // })
